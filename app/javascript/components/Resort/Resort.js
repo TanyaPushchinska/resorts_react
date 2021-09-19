@@ -27,14 +27,15 @@ const Resort = (props) => {
 
   const handleSubmit = (e) => {
     const resort_id = resort.data.id
-    axios.post(`api/v1/reviews`, { ...review, resort_id })
+    axios.post('/api/v1/reviews', { ...review, resort_id })
       .then(resp => {
-        console.log('success')
-        const included = [...resort.included, resp.data.data]
+        const included = [...resort.included, resp.data]
         setResort({...resort, included})
         setReview({title: '', description: '', score: 0})
       })
-      .catch(resp => console.log(resp))
+      .catch(resp => {
+        console.log(resp)
+      })
   }
 
   return (
@@ -47,8 +48,11 @@ const Resort = (props) => {
                 <Header
                   attributes={resort.data.attributes}
                   reviews={resort.included}
+                  handleSubmit={handleSubmit}
+                  handleChange={handleChange}
                 />
                 <div className="reviews">
+                  {/*show reviews*/}
                 </div>
               </div>
             </div>

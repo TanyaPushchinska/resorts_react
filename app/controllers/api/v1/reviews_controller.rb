@@ -5,6 +5,7 @@ module Api
       before_action :find_resort, only: :destroy
 
       def create
+        # binding.pry
         review = Review.new(review_params)
         if review.save
           render json: ReviewSerializer.new(review).serialized_json
