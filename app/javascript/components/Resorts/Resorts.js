@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from 'axios'
 import Resort from "./Resort";
+import {Link} from "react-router-dom";
 
 const Resorts = () => {
   const [resorts, setResorts] = useState([])
@@ -31,6 +32,7 @@ const Resorts = () => {
           Everything about summer
         </div>
       </div>
+      <Link to="/resorts"><button type="button" className="add_resort">Add resort</button></Link>
       <div className={'initial_grid'}>
         {grid}
       </div>

@@ -47,6 +47,7 @@ const Resort = (props) => {
               <div className="main">
                 <Header
                   attributes={resort.data.attributes}
+                  resort={resort}
                   reviews={resort.included}
                   handleSubmit={handleSubmit}
                   handleChange={handleChange}
