@@ -1,21 +1,19 @@
 import React, {Fragment} from 'react'
 import {Link} from "react-router-dom";
-import ShellRating from "./ShellRating";
-import StarRating from "./StarRating";
 
 const ReviewForm = (props) => {
-  // const ratingOptions = [1, 2, 3, 4, 5].map( (score, index) => {
-  //   return (
-  //     <Fragment key={index}>
-  //       <input
-  //         type="radio"
-  //         value={score}
-  //         name="score"
-  //         onChange={props.handleChange}
-  //         id={index}/>
-  //     </Fragment>
-  //   )
-  // })
+  const ratingOptions = [1, 2, 3, 4, 5].map( (score, index) => {
+    return (
+      <Fragment key={index}>
+        <input
+          type="radio"
+          value={score}
+          name="score"
+          onChange={props.handleChange}
+          id={index}/>
+      </Fragment>
+    )
+  })
 
   return (
     <div>
@@ -28,11 +26,7 @@ const ReviewForm = (props) => {
         <div>
           <div>
             <label htmlFor="rate_this_resort">Rate this resort</label>
-            {/*<ShellRating/>*/}
-            <StarRating
-              id="rate_this_resort"
-              handleChange={props.handleChange}/>
-            {/*{ratingOptions}*/}
+            {ratingOptions}
           </div>
         </div>
         <input type="submit" value="Create"/>

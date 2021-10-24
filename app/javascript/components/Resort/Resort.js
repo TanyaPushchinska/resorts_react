@@ -47,14 +47,11 @@ const Resort = (props) => {
               <div className="main">
                 <Header
                   attributes={resort.data.attributes}
-                  resort={resort}
-                  reviews={resort.included}
+                  reviews={resort.data.relationships.reviews.data}
                   handleSubmit={handleSubmit}
                   handleChange={handleChange}
                 />
-                <div className="reviews">
-                  {/*show reviews*/}
-                </div>
+                <div className="reviews"></div>
               </div>
             </div>
           </Fragment>

@@ -14,9 +14,10 @@ module Api
       def create
         @resort = Resort.new(resort_params)
         if @resort.save
-          render(json: { message: '', status: :created } )
+          render json: ResortSerializer.new(@resort, options).serialized_json
+          redirect_to root_path
         else
-          render(json: { message: '', status: 401 } )
+          render json: { error: @resort.errors.messages }, status: 422
         end
       end
 
@@ -30,8 +31,11 @@ module Api
       end
 
       def destroy
-        @resort.delete
-        redirect_to api_v1_resorts_path
+        if @resort.destroy
+          head :no_content
+        else
+          render json: { error: @resort.errors.messages }, status: 422
+        end
       end
 
       private
@@ -42,6 +46,10 @@ module Api
 
       def resort_params
         params.require(:resort).permit(:name, :image_url, :slug)
+      end
+
+      def options
+        @options ||= { include: %i[reviews] }
       end
     end
   end

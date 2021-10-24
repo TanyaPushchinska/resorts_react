@@ -34,9 +34,7 @@ const ResortForm = () => {
         <input onChange={handleChange} type="text" id="image_irl" name="image_url" placeholder="Image url"/>
         <label htmlFor="slug">Slug</label>
         <input onChange={handleChange} type="text" id="slug" name="slug" placeholder="Slug for resort"/>
-        {/*<button type="submit">Create</button>*/}
         <input type="submit" value="Create"/>
-        {/*<input type="button">Cancel</input>*/}
         <Link to="/"><button type="button" className="cancel_button">Cancel</button></Link>
       </form>
     </div>

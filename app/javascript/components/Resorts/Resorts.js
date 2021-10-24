@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import Resort from "./Resort";
 import {Link} from "react-router-dom";
@@ -37,10 +37,6 @@ const Resorts = () => {
         {grid}
       </div>
     </div>
-    // <Fragment>
-    //   <div>Super Resorts</div>
-    //   <ul>{list}</ul>
-    // </Fragment>
   )
 }
 
